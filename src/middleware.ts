@@ -27,7 +27,7 @@ async function middleware(req: NextRequest) {
 
   if (subdomain && host) {
     // Subdomain available, appending as query parameter
-    const hostWithoutSubdomain = host.replace(`${subdomain}.`, "");
+    const hostWithoutSubdomain = host.replace(`${subdomain}.`, "subdomain");
     // Update the URL with the modified host
     url.hostname = hostWithoutSubdomain;
     url.searchParams.set("subdomain", subdomain);
