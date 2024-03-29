@@ -43,8 +43,9 @@ export async function getServerSideProps(context: any) {
   // console.log("context", context);
   const host = context.req.headers.host;
   const subdomain = host.split(".")[0]; // Simple extraction; enhance as needed.
+  const queryParams = context.query;
 
   return {
-    props: { subdomain }, // Passed to the page component as props
+    props: { subdomain, queryParams }, // Passed to the page component as props
   };
 }
