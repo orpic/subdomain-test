@@ -9,11 +9,11 @@ export default function Home() {
   const router = useRouter();
 
   const { subdomain, templateId, videoId } = router.query;
-  // console.log("sub:", subdomain, templateId, videoId, router);
+  console.log("sub:", subdomain, templateId, videoId, router);
 
-  // useEffect(() => {
-  //   console.log("subeffect:", subdomain, templateId, videoId, router);
-  // }, [router, subdomain, templateId, videoId]);
+  useEffect(() => {
+    console.log("subeffect:", subdomain, templateId, videoId, router);
+  }, [router, subdomain, templateId, videoId]);
 
   return (
     <>
