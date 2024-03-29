@@ -25,7 +25,7 @@ async function middleware(req: NextRequest) {
   const subdomain = getValidSubdomain(host);
   console.log("Detected subdomain:", subdomain);
 
-  if (subdomain && host) {
+  if (subdomain && host && subdomain !== "subdomain") {
     // Subdomain available, appending as query parameter
     url.searchParams.set("subdomain", subdomain);
     const hostWithoutSubdomain = host.replace(`${subdomain}`, "subdomain");
