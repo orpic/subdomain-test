@@ -9,11 +9,11 @@ export default function Home() {
   const router = useRouter();
 
   const { subdomain, templateId, videoId } = router.query;
-  console.log("sub:", subdomain, templateId, videoId, router);
+  // console.log("sub:", subdomain, templateId, videoId, router);
 
-  useEffect(() => {
-    console.log("subeffect:", subdomain, templateId, videoId, router);
-  }, [router, subdomain, templateId, videoId]);
+  // useEffect(() => {
+  //   console.log("subeffect:", subdomain, templateId, videoId, router);
+  // }, [router, subdomain, templateId, videoId]);
 
   return (
     <>
@@ -40,7 +40,7 @@ export default function Home() {
 }
 
 export async function getServerSideProps(context: any) {
-  console.log("context", context);
+  // console.log("context", context);
   const host = context.req.headers.host;
   const subdomain = host.split(".")[0]; // Simple extraction; enhance as needed.
 
