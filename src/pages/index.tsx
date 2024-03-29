@@ -38,3 +38,13 @@ export default function Home() {
     </>
   );
 }
+
+export async function getServerSideProps(context: any) {
+  console.log("context", context);
+  const host = context.req.headers.host;
+  const subdomain = host.split(".")[0]; // Simple extraction; enhance as needed.
+
+  return {
+    props: { subdomain }, // Passed to the page component as props
+  };
+}
