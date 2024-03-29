@@ -1,3 +1,4 @@
+import { GetServerSidePropsContext } from "next";
 import { Inter } from "next/font/google";
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -5,15 +6,11 @@ import { useEffect } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+export default function Home(props: any) {
   const router = useRouter();
 
   const { subdomain, templateId, videoId } = router.query;
-  console.log("sub:", subdomain, templateId, videoId, router);
-
-  useEffect(() => {
-    console.log("subeffect:", subdomain, templateId, videoId, router);
-  }, [router, subdomain, templateId, videoId]);
+  console.log("props", props, "dddd:", subdomain);
 
   return (
     <>
@@ -39,13 +36,9 @@ export default function Home() {
   );
 }
 
-export async function getServerSideProps(context: any) {
-  // console.log("context", context);
-  const host = context.req.headers.host;
-  const subdomain = host.split(".")[0]; // Simple extraction; enhance as needed.
+export async function getServerSideProps(context: GetServerSidePropsContext) {
   const queryParams = context.query;
-
   return {
-    props: { subdomain, queryParams }, // Passed to the page component as props
+    props: queryParams, // Passed to the page component as props
   };
 }
