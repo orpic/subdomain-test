@@ -20,13 +20,16 @@ async function middleware(req: NextRequest) {
   }
 
   const host = req.headers.get("host");
-  console.log("Incoming request host:", host);
+  //   console.log("Incoming request host:", host);
 
   const subdomain = getValidSubdomain(host);
   console.log("Detected subdomain:", subdomain);
 
-  if (subdomain) {
+  if (subdomain && host) {
     // Subdomain available, appending as query parameter
+    const hostWithoutSubdomain = host.replace(`${subdomain}.`, "");
+    // Update the URL with the modified host
+    url.hostname = hostWithoutSubdomain;
     url.searchParams.set("subdomain", subdomain);
     console.log("Subdomain parameter added to URL:", url.toString());
   }
