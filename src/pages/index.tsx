@@ -21,15 +21,17 @@ export default function Home(props: any) {
       <main
         className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
       >
-        <div className="z-10 text-xl  w-full items-center justify-between font-mono lg:flex">
-          <p className="w-96  flex  justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
+        <div className="z-10 text-xl flex flex-col w-full items-center justify-between font-mono gap-7">
+          <div className="w-96  flex  justify-center border-b border-gray-300  pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:from-inherit lg:static  lg:rounded-xl lg:border lg:p-4 lg bg-gray-700">
             <p className="">
               Try a different subdomain&nbsp; <br />
             </p>
+          </div>
+          <div className="flex justify-start flex-col">
             subdomain:&nbsp;{subdomain},<br />
             templateId:&nbsp;{templateId}, <br />
             videoId:&nbsp;{videoId}
-          </p>
+          </div>
         </div>
       </main>
     </>
